@@ -29,8 +29,9 @@ public class Monitor extends RealmObject {
     private String numTelefono;
     @Required
     private String semestre;
+    @Required
     private String lineaMonitoria;
-
+    @Required
     private Date fecha;
     @Required
     private String lugar;

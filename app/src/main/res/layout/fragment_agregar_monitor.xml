@@ -5,11 +5,12 @@
     android:layout_height="match_parent"
     tools:context="com.sbsromero.proyectosadministradoressara.fragments.AgregarMonitorFragment">
 
-    <android.support.v4.widget.NestedScrollView
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <RelativeLayout
+            android:id="@+id/rLAgregarMonitor"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -112,21 +113,14 @@
                 android:layout_centerHorizontal="true"
                 android:ems="10"
                 android:hint="Lugar" />
-
-
+            <Button
+                android:id="@+id/btnRegistrarMonitor"
+                android:layout_below="@+id/editTextLugar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="Registrar" />
         </RelativeLayout>
-
-    </android.support.v4.widget.NestedScrollView>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <Button
-            android:id="@+id/btnRegistrarMonitor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:text="Registrar" />
-    </RelativeLayout>
+    </ScrollView>
 
 </FrameLayout>

@@ -63,6 +63,13 @@ public class AgregarMonitorFragment extends Fragment{
         adapterLineaMonitoria.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerLineaMonitoria.setAdapter(adapterLineaMonitoria);
 
+        agregarMonitor(view);
+
+        return view;
+    }
+
+    public void agregarMonitor(View view)
+    {
         btnRegistrarMonitor = view.findViewById(R.id.btnRegistrarMonitor);
         editTextCedula = view.findViewById(R.id.editTextCedula);
         editTextNombre = view.findViewById(R.id.editTextNombre);
@@ -84,7 +91,7 @@ public class AgregarMonitorFragment extends Fragment{
                 getActivity().finish();
             }
         });
-        return view;
+
     }
 
     public void crearMonitor(String cedula, String nombre, String telefono, String username, String password,
