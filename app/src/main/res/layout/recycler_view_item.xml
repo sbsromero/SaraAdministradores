@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageViewMonitor"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/perfil" />
+
+        <TextView
+            android:id="@+id/textViewLineaAsesoria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/imageViewMonitor"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/imageViewMonitor"
+            android:text="Linea de asesoria"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewNombreMonitor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewLineaAsesoria"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/imageViewMonitor"
+            android:text="Nombre del monitor" />
+
+        <TextView
+            android:id="@+id/textViewSemestre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewNombreMonitor"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/imageViewMonitor"
+            android:text="Semestre" />
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

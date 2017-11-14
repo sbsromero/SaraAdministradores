@@ -1,0 +1,48 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sbsromero.proyectosadministradoressara.fragments.ListMonitorFragment">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Spinner
+                android:id="@+id/spinnerFilter"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerListViewMonitor"
+                android:layout_below="@id/spinnerFilter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </android.support.v7.widget.RecyclerView>
+
+        </RelativeLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatAgregarMonitor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:src="@android:drawable/ic_menu_add"
+            android:layout_margin="16dp" />
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+
+
+
+
+</FrameLayout>
