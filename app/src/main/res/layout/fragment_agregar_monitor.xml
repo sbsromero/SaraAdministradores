@@ -106,19 +106,60 @@
                 android:layout_below="@id/spinnerSemestre" />
 
             <EditText
+                android:id="@+id/editTextFecha"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/spinnerLineaMonitoria"
+                android:layout_alignRight="@id/spinnerLineaMonitoria"
+                android:layout_alignStart="@+id/spinnerLineaMonitoria"
+                android:layout_below="@+id/spinnerLineaMonitoria"
+                android:enabled="false"
+                android:hint="dd/MM/yyyy" />
+
+            <ImageButton
+                android:id="@+id/imgBtnFecha"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignEnd="@+id/spinnerLineaMonitoria"
+                android:layout_alignRight="@+id/spinnerLineaMonitoria"
+                android:layout_below="@+id/spinnerLineaMonitoria"
+                android:src="@mipmap/ic_calendar" />
+
+            <EditText
+                android:id="@+id/editTextHora"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/spinnerLineaMonitoria"
+                android:layout_alignStart="@+id/spinnerLineaMonitoria"
+                android:layout_below="@+id/editTextFecha"
+                android:enabled="false"
+                android:hint="hh:ii:ss" />
+
+            <ImageButton
+                android:id="@+id/imgBtnHora"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignEnd="@+id/spinnerLineaMonitoria"
+                android:layout_alignRight="@+id/spinnerLineaMonitoria"
+                android:layout_below="@+id/imgBtnFecha"
+                android:src="@mipmap/ic_timer" />
+
+
+            <EditText
                 android:id="@+id/editTextLugar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/spinnerLineaMonitoria"
+                android:layout_below="@id/editTextHora"
                 android:layout_centerHorizontal="true"
                 android:ems="10"
                 android:hint="Lugar" />
+
             <Button
                 android:id="@+id/btnRegistrarMonitor"
-                android:layout_below="@+id/editTextLugar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
+                android:layout_below="@+id/editTextLugar"
                 android:text="Registrar" />
         </RelativeLayout>
     </ScrollView>

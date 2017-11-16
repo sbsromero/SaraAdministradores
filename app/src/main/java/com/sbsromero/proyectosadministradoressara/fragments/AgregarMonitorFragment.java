@@ -1,6 +1,8 @@
 package com.sbsromero.proyectosadministradoressara.fragments;
 
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,13 +10,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.sbsromero.proyectosadministradoressara.R;
 import com.sbsromero.proyectosadministradoressara.models.Monitor;
+
+import java.util.Calendar;
 
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
@@ -23,7 +31,7 @@ import io.realm.RealmResults;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AgregarMonitorFragment extends Fragment{
+public class AgregarMonitorFragment extends Fragment {
 
     private Realm realm;
     public Button btnRegistrarMonitor;
@@ -35,6 +43,10 @@ public class AgregarMonitorFragment extends Fragment{
     public Spinner spinnerSemestre;
     public Spinner spinerLineaAsesoria;
     public EditText editTextLugar;
+    public EditText editTextFecha;
+    public EditText editTextHora;
+    public ImageButton imgBtnFecha;
+    public ImageButton imgBtnHora;
 
     public AgregarMonitorFragment() {
         // Required empty public constructor
@@ -79,6 +91,52 @@ public class AgregarMonitorFragment extends Fragment{
         spinnerSemestre = view.findViewById(R.id.spinnerSemestre);
         spinerLineaAsesoria = view.findViewById(R.id.spinnerLineaMonitoria);
         editTextLugar = view.findViewById(R.id.editTextLugar);
+        editTextFecha = view.findViewById(R.id.editTextFecha);
+        editTextHora = view.findViewById(R.id.editTextHora);
+        imgBtnFecha = view.findViewById(R.id.imgBtnFecha);
+        imgBtnHora = view.findViewById(R.id.imgBtnHora);
+
+        imgBtnFecha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Calendar c = Calendar.getInstance();
+                int year = c.get(Calendar.YEAR);
+                int month = c.get(Calendar.MONTH);
+                int day = c.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog.OnDateSetListener myDateListener = new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker arg0, int year, int month, int day) {
+                        editTextFecha.setText(day+"/"+month+"/"+year);
+                    }
+                };
+                DatePickerDialog dp = new DatePickerDialog(getContext(),myDateListener,year,month,day);
+                dp.show();
+            }
+        });
+
+        imgBtnHora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Calendar c = Calendar.getInstance();
+                int hour = c.get(Calendar.HOUR);
+                int minute = c.get(Calendar.MINUTE);
+                TimePickerDialog.OnTimeSetListener timerListener = new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                        editTextHora.setText(hour+":"+minute);
+                    }
+                };
+
+
+                TimePickerDialog tm = new TimePickerDialog(getContext(),timerListener,hour,minute,false);
+                tm.show();
+            }
+        });
+
+
 
         btnRegistrarMonitor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,5 +159,4 @@ public class AgregarMonitorFragment extends Fragment{
         realm.copyToRealm(monitor);
         realm.commitTransaction();
     }
-
 }
