@@ -238,8 +238,7 @@ public class AgregarMonitorFragment extends Fragment {
             bandera = false;
             builder.setMessage("El campo hora no puede estar vacio");
             builder.create().show();
-        }
-        else if(lugar.equals("")){
+        } else if(lugar.equals("")){
             bandera = false;
             builder.setMessage("El campo lugar no puede estar vacio");
             builder.create().show();
