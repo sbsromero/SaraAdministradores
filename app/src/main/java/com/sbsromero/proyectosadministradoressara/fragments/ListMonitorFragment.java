@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -24,19 +25,22 @@ import com.sbsromero.proyectosadministradoressara.models.Monitor;
 import java.util.List;
 
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ListMonitorFragment extends Fragment  {
+public class ListMonitorFragment extends Fragment {
 
     private Realm realm;
+    private RealmResults<Monitor> filtroMonitores;
     public List<Monitor> monitores;
     public RecyclerView recyclerListViewMonitor;
     public RecyclerView.LayoutManager layoutManager;
     public MonitorAdapter monitorAdapter;
     public MonitorListener monitorListener;
     public FloatingActionButton btnAgregarMentor;
+    public Spinner spinnerFilter;
 
     public ListMonitorFragment() {
         // Required empty public constructor
@@ -69,6 +73,7 @@ public class ListMonitorFragment extends Fragment  {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_list_monitor, container, false);
+        spinnerFilter = view.findViewById(R.id.spinnerFilter);
 
         Spinner spinner = (Spinner) view.findViewById(R.id.spinnerFilter);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
@@ -96,22 +101,67 @@ public class ListMonitorFragment extends Fragment  {
                 ((LinearLayoutManager) layoutManager).getOrientation())
         );
 
+        listenerSpinnerFilter(view);
         btnAgregarMentor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), AgregarMonitorActivity.class);
                 startActivity(intent);
-                // Toast.makeText(view.getContext(),"Presiono",Toast.LENGTH_SHORT).show();
             }
         });
         return view;
     }
 
-    public void enviarMonitorId(int id){
+    /**
+     * Metodo que setea el evento al spiner para realizar el filtro de busqueda
+     * @param view
+     */
+    public void listenerSpinnerFilter(View view) {
+        spinnerFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String filtro = spinnerFilter.getSelectedItem().toString();
+                filtrarLineaMonitoria(filtro);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+    }
+
+    /**
+     * Metodo que permite realizar el filtro de lineas de monitoras de los monitores
+     * @param filtro
+     */
+    public void filtrarLineaMonitoria(String filtro) {
+        if (filtro.equals("Seleccione uno")) {
+            filtroMonitores = realm.where(Monitor.class)
+                    .findAll();
+        } else {
+            filtroMonitores = realm.where(Monitor.class)
+                    .equalTo("lineaMonitoria", filtro)
+                    .findAll();
+        }
+        monitorAdapter = new MonitorAdapter(getContext(), filtroMonitores, R.layout.recycler_view_item, new MonitorAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int id) {
+                enviarMonitorId(id);
+            }
+        });
+        recyclerListViewMonitor.setAdapter(monitorAdapter);
+        recyclerListViewMonitor.setLayoutManager(layoutManager);
+        recyclerListViewMonitor.addItemDecoration(new DividerItemDecoration(
+                getActivity(),
+                ((LinearLayoutManager) layoutManager).getOrientation())
+        );
+    }
+
+    public void enviarMonitorId(int id) {
         monitorListener.enviarDatosMonitor(id);
 
     }
-    public interface MonitorListener{
+
+    public interface MonitorListener {
         void enviarDatosMonitor(int id);
     }
 

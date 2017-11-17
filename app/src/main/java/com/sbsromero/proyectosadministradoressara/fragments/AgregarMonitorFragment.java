@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,20 +14,17 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.sbsromero.proyectosadministradoressara.R;
 import com.sbsromero.proyectosadministradoressara.models.Monitor;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
+import java.util.Date;
 import io.realm.Realm;
-import io.realm.RealmChangeListener;
-import io.realm.RealmResults;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -80,6 +78,11 @@ public class AgregarMonitorFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Metodo encargado de recuperar los atributos de la vista y
+     * setear los listener al calendario, hora y registrar
+     * @param view
+     */
     public void agregarMonitor(View view)
     {
         btnRegistrarMonitor = view.findViewById(R.id.btnRegistrarMonitor);
@@ -130,12 +133,10 @@ public class AgregarMonitorFragment extends Fragment {
                     }
                 };
 
-
                 TimePickerDialog tm = new TimePickerDialog(getContext(),timerListener,hour,minute,false);
                 tm.show();
             }
         });
-
 
 
         btnRegistrarMonitor.setOnClickListener(new View.OnClickListener() {
@@ -145,18 +146,104 @@ public class AgregarMonitorFragment extends Fragment {
                         editTextTelefono.getText().toString(),editTextUsername.getText().toString(),
                         editTextPassword.getText().toString(),
                         spinnerSemestre.getSelectedItem().toString(),spinerLineaAsesoria.getSelectedItem().toString(),
-                        editTextLugar.getText().toString());
-                getActivity().finish();
+                       editTextFecha.getText().toString(),editTextHora.getText().toString(),editTextLugar.getText().toString());
             }
         });
-
     }
 
+    /**
+     * Metood que permite realizar la insercion en la base de datos
+     * @param cedula
+     * @param nombre
+     * @param telefono
+     * @param username
+     * @param password
+     * @param semestre
+     * @param lineaAsesoria
+     * @param fecha
+     * @param hora
+     * @param lugar
+     */
     public void crearMonitor(String cedula, String nombre, String telefono, String username, String password,
-                             String semestre, String lineaAsesoria, String lugar){
-        realm.beginTransaction();
-        Monitor monitor = new Monitor(cedula,nombre,telefono,username,password,semestre,lineaAsesoria,lugar);
-        realm.copyToRealm(monitor);
-        realm.commitTransaction();
+                             String semestre, String lineaAsesoria, String fecha, String hora, String lugar){
+
+        boolean bandera = validarCampos(cedula,nombre,telefono, username, password, semestre,lineaAsesoria,fecha,hora,lugar);
+        if(bandera){
+            String dateString = fecha+" "+hora;
+            Date date = null;
+            try {
+                date = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(dateString);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            realm.beginTransaction();
+            Monitor monitor = new Monitor(cedula,nombre,telefono,username,password,semestre,lineaAsesoria,date,lugar);
+            realm.copyToRealm(monitor);
+            realm.commitTransaction();
+            getActivity().finish();
+        }
+    }
+
+    /**
+     * Metodo que valida los campos para agregar un nuevo mentor
+     * @param cedula
+     * @param nombre
+     * @param telefono
+     * @param username
+     * @param password
+     * @param semestre
+     * @param lineaAsesoria
+     * @param fecha
+     * @param hora
+     * @param lugar
+     * @return true si todos los campos son validos, de lo contrario false
+     */
+    public boolean validarCampos(String cedula, String nombre, String telefono, String username, String password,
+                              String semestre, String lineaAsesoria, String fecha,String hora, String lugar){
+        boolean bandera = true;
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        if(cedula.equals("")){
+            bandera = false;
+            builder.setMessage("El campo cedula no puede estar vacio");
+            builder.create().show();
+        }else if(nombre.equals("")){
+            bandera = false;
+            builder.setMessage("El campo nombre no puede estar vacio");
+            builder.create().show();
+        }else if(telefono.equals("")){
+            bandera = false;
+            builder.setMessage("El campo telefono no puede estar vacio");
+            builder.create().show();
+        }else if(username.equals("")){
+            bandera = false;
+            builder.setMessage("El campo username no puede estar vacio");
+            builder.create().show();
+        }else if(password.equals("")){
+            bandera = false;
+            builder.setMessage("El campo password no puede estar vacio");
+            builder.create().show();
+        }else if(semestre.equals("")){
+            bandera = false;
+            builder.setMessage("El campo semestre no puede estar vacio");
+            builder.create().show();
+        }else if(lineaAsesoria.equals("")){
+            bandera = false;
+            builder.setMessage("El campo linea de asesoria no puede estar vacio");
+            builder.create().show();
+        } else if(fecha.equals("")){
+            bandera = false;
+            builder.setMessage("El campo fecha no puede estar vacio");
+            builder.create().show();
+        }else if(hora.equals("")){
+            bandera = false;
+            builder.setMessage("El campo hora no puede estar vacio");
+            builder.create().show();
+        }
+        else if(lugar.equals("")){
+            bandera = false;
+            builder.setMessage("El campo lugar no puede estar vacio");
+            builder.create().show();
+        }
+        return bandera;
     }
 }

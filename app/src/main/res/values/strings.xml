@@ -16,6 +16,7 @@
         <item>10</item>
     </string-array>
     <string-array name="lineasAsesoria_array">
+        <item>Seleccione uno</item>
         <item>Paradigma</item>
         <item>Analisis</item>
         <item>Backtracking</item>
