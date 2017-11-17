@@ -21,8 +21,4 @@ public class MonitoresActivity extends AppCompatActivity implements ListMonitorF
     public void enviarDatosMonitor(int id) {
         Toast.makeText(this,"Presione mointor id "+id,Toast.LENGTH_LONG).show();
     }
-
-    public void listarLineaMonitoria(){
-
-    }
 }
