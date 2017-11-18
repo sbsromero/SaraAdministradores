@@ -1,5 +1,6 @@
 package com.sbsromero.proyectosadministradoressara.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -19,6 +20,8 @@ public class MonitoresActivity extends AppCompatActivity implements ListMonitorF
 
     @Override
     public void enviarDatosMonitor(int id) {
-        Toast.makeText(this,"Presione mointor id "+id,Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(MonitoresActivity.this,VisualizarMonitorActivity.class);
+        intent.putExtra("id",id);
+        startActivity(intent);
     }
 }

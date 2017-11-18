@@ -226,9 +226,9 @@ public class AgregarMonitorFragment extends Fragment {
             bandera = false;
             builder.setMessage("El campo semestre no puede estar vacio");
             builder.create().show();
-        }else if(lineaAsesoria.equals("")){
+        }else if(lineaAsesoria.equals("Seleccione uno")){
             bandera = false;
-            builder.setMessage("El campo linea de asesoria no puede estar vacio");
+            builder.setMessage("Seleccione una linea de asesoria");
             builder.create().show();
         } else if(fecha.equals("")){
             bandera = false;
