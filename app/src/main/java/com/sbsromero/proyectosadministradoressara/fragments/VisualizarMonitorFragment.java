@@ -4,9 +4,13 @@ package com.sbsromero.proyectosadministradoressara.fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sbsromero.proyectosadministradoressara.R;
 import com.sbsromero.proyectosadministradoressara.models.Monitor;
@@ -54,6 +58,8 @@ public class VisualizarMonitorFragment extends Fragment {
             monitorId = getActivity().getIntent().getExtras().getInt("id");
         }
         renderMonitor(monitorId);
+        setHasOptionsMenu(true);
+
         return view;
     }
 
@@ -69,4 +75,31 @@ public class VisualizarMonitorFragment extends Fragment {
         textViewLineaAsesoria.setText(monitor.getLineaMonitoria());
     }
 
+    public void eliminarMonitor(int id){
+        monitor = realm.where(Monitor.class)
+                .equalTo("id",id)
+                .findFirst();
+        realm.beginTransaction();
+        monitor.deleteFromRealm();
+        realm.commitTransaction();
+        getActivity().finish();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.action_bar_menu,menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.deleteMonitor:
+                eliminarMonitor(monitorId);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }

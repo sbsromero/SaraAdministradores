@@ -21,4 +21,5 @@
         <item>Analisis</item>
         <item>Backtracking</item>
     </string-array>
+    <string name="facebook_app_id">722196974636747</string>
 </resources>
