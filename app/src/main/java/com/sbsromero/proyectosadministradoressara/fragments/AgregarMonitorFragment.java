@@ -19,6 +19,7 @@ import android.widget.TimePicker;
 
 import com.sbsromero.proyectosadministradoressara.R;
 import com.sbsromero.proyectosadministradoressara.models.Monitor;
+import com.sbsromero.proyectosadministradoressara.utils.Util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -171,11 +172,13 @@ public class AgregarMonitorFragment extends Fragment {
         if(bandera){
             String dateString = fecha+" "+hora;
             Date date = null;
+            password = Util.encriptarPassword(password);
             try {
                 date = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(dateString);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+
             realm.beginTransaction();
             Monitor monitor = new Monitor(cedula,nombre,telefono,username,password,semestre,lineaAsesoria,date,lugar);
             realm.copyToRealm(monitor);

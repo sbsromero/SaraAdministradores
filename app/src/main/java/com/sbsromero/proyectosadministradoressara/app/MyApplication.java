@@ -3,6 +3,7 @@ package com.sbsromero.proyectosadministradoressara.app;
 import android.app.Application;
 
 import com.facebook.stetho.Stetho;
+import com.sbsromero.proyectosadministradoressara.models.Admin;
 import com.sbsromero.proyectosadministradoressara.models.Monitor;
 import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
 
@@ -20,6 +21,7 @@ import io.realm.RealmResults;
 public class MyApplication extends Application {
 
     public static AtomicInteger MonitorId = new AtomicInteger();
+    public static AtomicInteger AdminId = new AtomicInteger();
 
     @Override
     public void onCreate() {
@@ -34,6 +36,7 @@ public class MyApplication extends Application {
                         .build());
 
         MonitorId = getIdByTable(realm, Monitor.class);
+        AdminId = getIdByTable(realm, Admin.class);
         realm.close();
     }
 
