@@ -1,8 +1,10 @@
 package com.sbsromero.proyectosadministradoressara.fragments;
 
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -14,12 +16,15 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.sbsromero.proyectosadministradoressara.R;
 import com.sbsromero.proyectosadministradoressara.models.Monitor;
 import com.sbsromero.proyectosadministradoressara.utils.Util;
+import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -46,6 +51,8 @@ public class AgregarMonitorFragment extends Fragment {
     public EditText editTextHora;
     public ImageButton imgBtnFecha;
     public ImageButton imgBtnHora;
+    public ImageButton imgButtonFoto;
+    private final int FOTO_CAMARA = 14;
 
     public AgregarMonitorFragment() {
         // Required empty public constructor
@@ -99,7 +106,25 @@ public class AgregarMonitorFragment extends Fragment {
         editTextHora = view.findViewById(R.id.editTextHora);
         imgBtnFecha = view.findViewById(R.id.imgBtnFecha);
         imgBtnHora = view.findViewById(R.id.imgBtnHora);
+        imgButtonFoto = view.findViewById(R.id.imgButtonFoto);
 
+        accionCalendario(view);
+        accionHora(view);
+        accionFoto(view);
+
+        btnRegistrarMonitor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                crearMonitor(editTextCedula.getText().toString(), editTextNombre.getText().toString(),
+                        editTextTelefono.getText().toString(),editTextUsername.getText().toString(),
+                        editTextPassword.getText().toString(),
+                        spinnerSemestre.getSelectedItem().toString(),spinerLineaAsesoria.getSelectedItem().toString(),
+                       editTextFecha.getText().toString(),editTextHora.getText().toString(),editTextLugar.getText().toString());
+            }
+        });
+    }
+
+    public void accionCalendario(View view){
         imgBtnFecha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,7 +144,9 @@ public class AgregarMonitorFragment extends Fragment {
                 dp.show();
             }
         });
+    }
 
+    public void accionHora(View vie){
         imgBtnHora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,18 +165,35 @@ public class AgregarMonitorFragment extends Fragment {
                 tm.show();
             }
         });
+    }
 
-
-        btnRegistrarMonitor.setOnClickListener(new View.OnClickListener() {
+    public void accionFoto(View view){
+        ImageButton imgButtonFoto = (ImageButton) view.findViewById(R.id.imgButtonFoto);
+        imgButtonFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                crearMonitor(editTextCedula.getText().toString(), editTextNombre.getText().toString(),
-                        editTextTelefono.getText().toString(),editTextUsername.getText().toString(),
-                        editTextPassword.getText().toString(),
-                        spinnerSemestre.getSelectedItem().toString(),spinerLineaAsesoria.getSelectedItem().toString(),
-                       editTextFecha.getText().toString(),editTextHora.getText().toString(),editTextLugar.getText().toString());
+                Intent intenCamara = new Intent("android.media.action.IMAGE_CAPTURE");
+                startActivityForResult(intenCamara, FOTO_CAMARA);
             }
         });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case FOTO_CAMARA:
+                if (resultCode == Activity.RESULT_OK) {
+                    String result = data.toUri(0);
+                    ImageView imageViewFotoPerfil = (ImageView) getView().findViewById(R.id.imageViewFotoPerfil);
+                    Picasso.with(getContext()).load(result).fit().into(imageViewFotoPerfil);
+                } else {
+                    Toast.makeText(getContext(), "hubo un error en la captura de imagen", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            default:
+                super.onActivityResult(requestCode, resultCode, data);
+                break;
+        }
     }
 
     /**
