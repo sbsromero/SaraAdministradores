@@ -5,7 +5,9 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
@@ -52,7 +54,9 @@ public class AgregarMonitorFragment extends Fragment {
     public ImageButton imgBtnFecha;
     public ImageButton imgBtnHora;
     public ImageButton imgButtonFoto;
+    public ImageView imageViewFotoPerfil;
     private final int FOTO_CAMARA = 14;
+    private String urlFoto;
 
     public AgregarMonitorFragment() {
         // Required empty public constructor
@@ -115,7 +119,7 @@ public class AgregarMonitorFragment extends Fragment {
         btnRegistrarMonitor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                crearMonitor(editTextCedula.getText().toString(), editTextNombre.getText().toString(),
+                crearMonitor(urlFoto,editTextCedula.getText().toString(), editTextNombre.getText().toString(),
                         editTextTelefono.getText().toString(),editTextUsername.getText().toString(),
                         editTextPassword.getText().toString(),
                         spinnerSemestre.getSelectedItem().toString(),spinerLineaAsesoria.getSelectedItem().toString(),
@@ -172,7 +176,9 @@ public class AgregarMonitorFragment extends Fragment {
         imgButtonFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intenCamara = new Intent("android.media.action.IMAGE_CAPTURE");
+                //Intent intenCamara = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                Intent intenCamara = new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intenCamara, FOTO_CAMARA);
             }
         });
@@ -183,9 +189,12 @@ public class AgregarMonitorFragment extends Fragment {
         switch (requestCode) {
             case FOTO_CAMARA:
                 if (resultCode == Activity.RESULT_OK) {
-                    String result = data.toUri(0);
+                    Uri result = data.getData();
+
                     ImageView imageViewFotoPerfil = (ImageView) getView().findViewById(R.id.imageViewFotoPerfil);
-                    Picasso.with(getContext()).load(result).fit().into(imageViewFotoPerfil);
+                    Picasso.with(getContext()).load(result).into(imageViewFotoPerfil);
+                    urlFoto = result.toString();
+                    Toast.makeText(getContext(),urlFoto,Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getContext(), "hubo un error en la captura de imagen", Toast.LENGTH_SHORT).show();
                 }
@@ -209,7 +218,7 @@ public class AgregarMonitorFragment extends Fragment {
      * @param hora
      * @param lugar
      */
-    public void crearMonitor(String cedula, String nombre, String telefono, String username, String password,
+    public void crearMonitor(String foto, String cedula, String nombre, String telefono, String username, String password,
                              String semestre, String lineaAsesoria, String fecha, String hora, String lugar){
 
         boolean bandera = validarCampos(cedula,nombre,telefono, username, password, semestre,lineaAsesoria,fecha,hora,lugar);
@@ -224,7 +233,7 @@ public class AgregarMonitorFragment extends Fragment {
             }
 
             realm.beginTransaction();
-            Monitor monitor = new Monitor(cedula,nombre,telefono,username,password,semestre,lineaAsesoria,date,lugar);
+            Monitor monitor = new Monitor(foto,cedula,nombre,telefono,username,password,semestre,lineaAsesoria,date,lugar);
             realm.copyToRealm(monitor);
             realm.commitTransaction();
             getActivity().finish();

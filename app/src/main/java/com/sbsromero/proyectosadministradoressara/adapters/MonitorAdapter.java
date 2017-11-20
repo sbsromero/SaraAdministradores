@@ -1,7 +1,9 @@
 package com.sbsromero.proyectosadministradoressara.adapters;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +12,12 @@ import android.widget.TextView;
 
 import com.sbsromero.proyectosadministradoressara.R;
 import com.sbsromero.proyectosadministradoressara.models.Monitor;
+import com.sbsromero.proyectosadministradoressara.utils.Util;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import static com.sbsromero.proyectosadministradoressara.R.id.imageViewFotoPerfil;
 
 /**
  * Created by USERPC on 13/11/2017.
@@ -65,6 +71,12 @@ public class MonitorAdapter extends RecyclerView.Adapter<MonitorAdapter.ViewHold
         }
 
         public void bind(final Monitor monitor, final OnItemClickListener itemClickListener) {
+
+            String urlFoto = monitor.getUrlFoto();
+            if(!TextUtils.isEmpty(urlFoto)){
+                Uri result = Uri.parse(urlFoto);
+                Picasso.with(context).load(result).into(imageViewMonitor);
+            }
 
             textViewLineaAseoria.setText(monitor.getLineaMonitoria());
             textViewNombre.setText(monitor.getNombre());

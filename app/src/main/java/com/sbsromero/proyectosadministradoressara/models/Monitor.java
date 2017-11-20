@@ -41,9 +41,10 @@ public class Monitor extends RealmObject {
     public Monitor() {
     }
 
-    public Monitor(String cedula, String nombre,String telefono, String username, String password, String semestre, String lineaMonitoria,
+    public Monitor(String urlFoto, String cedula, String nombre,String telefono, String username, String password, String semestre, String lineaMonitoria,
                    Date fecha, String lugar) {
         this.id = MyApplication.MonitorId.incrementAndGet();
+        this.urlFoto = urlFoto;
         this.cedula = cedula;
         this.nombre = nombre;
         this.numTelefono = telefono;
