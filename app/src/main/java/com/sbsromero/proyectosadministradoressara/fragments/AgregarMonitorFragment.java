@@ -7,7 +7,6 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
@@ -128,6 +127,7 @@ public class AgregarMonitorFragment extends Fragment {
         });
     }
 
+    //Metodo que setea el listener al boton calendario
     public void accionCalendario(View view){
         imgBtnFecha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,6 +150,7 @@ public class AgregarMonitorFragment extends Fragment {
         });
     }
 
+    //Metodo que setea el listener al boton de hora
     public void accionHora(View vie){
         imgBtnHora.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -171,6 +172,7 @@ public class AgregarMonitorFragment extends Fragment {
         });
     }
 
+    //Metdo que setea el listener al boton de cambiar imagen de perfil
     public void accionFoto(View view){
         ImageButton imgButtonFoto = (ImageButton) view.findViewById(R.id.imgButtonFoto);
         imgButtonFoto.setOnClickListener(new View.OnClickListener() {
@@ -191,7 +193,7 @@ public class AgregarMonitorFragment extends Fragment {
                 if (resultCode == Activity.RESULT_OK) {
                     Uri result = data.getData();
 
-                    ImageView imageViewFotoPerfil = (ImageView) getView().findViewById(R.id.imageViewFotoPerfil);
+                    imageViewFotoPerfil = getView().findViewById(R.id.imageViewFotoPerfil);
                     Picasso.with(getContext()).load(result).into(imageViewFotoPerfil);
                     urlFoto = result.toString();
                     Toast.makeText(getContext(),urlFoto,Toast.LENGTH_LONG).show();

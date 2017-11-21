@@ -1,7 +1,10 @@
 package com.sbsromero.proyectosadministradoressara.models;
 
+import android.os.Parcelable;
+
 import com.sbsromero.proyectosadministradoressara.app.MyApplication;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import io.realm.RealmList;
@@ -13,7 +16,7 @@ import io.realm.annotations.Required;
  * Created by USERPC on 13/11/2017.
  */
 
-public class Monitor extends RealmObject {
+public class Monitor extends RealmObject{
 
     @PrimaryKey
     private int id;

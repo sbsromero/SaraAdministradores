@@ -51,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    //Inicializa los elementos de la vista
     private void bindUi(){
         editTextUsername = (EditText) findViewById(R.id.editTextUsername);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);

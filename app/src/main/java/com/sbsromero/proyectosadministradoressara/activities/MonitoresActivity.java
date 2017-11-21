@@ -51,6 +51,7 @@ public class MonitoresActivity extends AppCompatActivity implements ListMonitorF
         startActivity(intent);
     }
 
+    //Cierra sesion sin elminiar los shared preferences
     private void cerrarSesion(){
         //prefs.edit().clear().apply();
         Intent intent = new Intent(this, LoginActivity.class);

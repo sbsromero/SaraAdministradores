@@ -1,0 +1,167 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sbsromero.proyectosadministradoressara.fragments.AgregarMonitorFragment">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rLAgregarMonitor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp">
+
+                <ImageView
+                    android:id="@+id/imageViewFotoPerfil"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="40dp"
+                    android:src="@drawable/image_circle" />
+
+                <ImageButton
+                    android:id="@+id/imgButtonFoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="114dp"
+                    android:src="@android:drawable/ic_menu_camera" />
+            </FrameLayout>
+
+            <EditText
+                android:id="@+id/editTextCedula"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/frameLayout"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:hint="Cedula monitor" />
+
+            <EditText
+                android:id="@+id/editTextNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editTextCedula"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:hint="Nombre monitor" />
+
+            <EditText
+                android:id="@+id/editTextTelefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editTextNombre"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:hint="Telefono" />
+
+            <EditText
+                android:id="@+id/editTextUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editTextTelefono"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:hint="Username" />
+
+            <EditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editTextUsername"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:hint="Contraseña"
+                android:inputType="textPassword" />
+
+            <Spinner
+                android:id="@+id/spinnerSemestre"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignEnd="@+id/editTextUsername"
+                android:layout_alignLeft="@+id/editTextUsername"
+                android:layout_alignRight="@+id/editTextUsername"
+                android:layout_alignStart="@+id/editTextUsername"
+                android:layout_below="@id/editTextPassword" />
+
+            <Spinner
+                android:id="@+id/spinnerLineaMonitoria"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignEnd="@id/spinnerSemestre"
+                android:layout_alignLeft="@id/spinnerSemestre"
+                android:layout_alignRight="@id/spinnerSemestre"
+                android:layout_alignStart="@id/spinnerSemestre"
+                android:layout_below="@id/spinnerSemestre" />
+
+            <EditText
+                android:id="@+id/editTextFecha"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/spinnerLineaMonitoria"
+                android:layout_alignRight="@id/spinnerLineaMonitoria"
+                android:layout_alignStart="@+id/spinnerLineaMonitoria"
+                android:layout_below="@+id/spinnerLineaMonitoria"
+                android:enabled="false"
+                android:hint="dd/MM/yyyy" />
+
+            <ImageButton
+                android:id="@+id/imgBtnFecha"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignEnd="@+id/spinnerLineaMonitoria"
+                android:layout_alignRight="@+id/spinnerLineaMonitoria"
+                android:layout_below="@+id/spinnerLineaMonitoria"
+                android:src="@mipmap/ic_calendar" />
+
+            <EditText
+                android:id="@+id/editTextHora"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/spinnerLineaMonitoria"
+                android:layout_alignStart="@+id/spinnerLineaMonitoria"
+                android:layout_below="@+id/editTextFecha"
+                android:enabled="false"
+                android:hint="hh:ii:ss" />
+
+            <ImageButton
+                android:id="@+id/imgBtnHora"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignEnd="@+id/spinnerLineaMonitoria"
+                android:layout_alignRight="@+id/spinnerLineaMonitoria"
+                android:layout_below="@+id/imgBtnFecha"
+                android:src="@mipmap/ic_timer" />
+
+
+            <EditText
+                android:id="@+id/editTextLugar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editTextHora"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:hint="Lugar" />
+
+            <Button
+                android:id="@+id/btnEditarMonitor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/editTextLugar"
+                android:text="Guardar" />
+        </RelativeLayout>
+    </ScrollView>
+
+</FrameLayout>

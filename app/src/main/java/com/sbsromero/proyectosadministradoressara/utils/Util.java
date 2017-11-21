@@ -25,6 +25,7 @@ import io.realm.Realm;
 
 public class Util {
 
+    //Metodo que permite realizar una insercion de un administrador
     public static void agregarAdmin(Realm realm){
         realm.beginTransaction();
         Admin admin = new Admin("admin",Util.encriptarPassword("123"),"adming@gmail.com");
@@ -32,14 +33,17 @@ public class Util {
         realm.commitTransaction();
     }
 
+    //Metodo que verifica si en el sharedpreferences hay un username guardado
     public static String getUsername(SharedPreferences prefs){
         return prefs.getString("username",null);
     }
 
+    //Metodo que verifica si en el sharedpreferences hay una password guardado
     public static String getPassword(SharedPreferences prefs){
         return prefs.getString("password",null);
     }
 
+    //Metodo que cifra una contraseña
     public static String encriptarPassword(String password){
         byte[] data;
         String base64 = "";
@@ -52,6 +56,7 @@ public class Util {
         return base64;
     }
 
+    //Metodo que descifra una contraseña
     public static String desencriptarPassword(String password){
         byte[] data = Base64.decode(password, Base64.DEFAULT);
         String base64 = "";
