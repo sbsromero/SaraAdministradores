@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.HomeAdminActivity" />
-        <activity android:name=".activities.EditarMonitorActivity"></activity>
+        <activity android:name=".activities.EditarMonitorActivity" />
     </application>
 
 </manifest>

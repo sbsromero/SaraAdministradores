@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
     //o retorna un mensaje de error
     private void login(String username, String password){
         if(validarDatos(username,password)){
-            Intent intent = new Intent(LoginActivity.this, MonitoresActivity.class);
+            Intent intent = new Intent(LoginActivity.this, HomeAdminActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
