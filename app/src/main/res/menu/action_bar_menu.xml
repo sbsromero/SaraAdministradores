@@ -4,19 +4,19 @@
     <item
         android:id="@+id/deleteMonitor"
         android:icon="@mipmap/ic_delete_item"
-        android:title="Borrar"
+        android:title="@string/borrar"
         app:showAsAction="never"></item>
     <item
         android:id="@+id/editarMonitor"
         android:icon="@mipmap/ic_edit_item"
-        android:title="Editar"
+        android:title="@string/editar"
         app:showAsAction="never">
 
     </item>
     <item
         android:id="@+id/compartir"
         android:icon="@mipmap/ic_share_item"
-        android:title="Compartir"
+        android:title="@string/compartir"
         app:showAsAction="never">
 
     </item>

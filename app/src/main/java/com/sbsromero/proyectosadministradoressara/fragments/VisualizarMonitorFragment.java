@@ -117,7 +117,7 @@ public class VisualizarMonitorFragment extends Fragment {
         intent.putExtra(Intent.EXTRA_TEXT, monitor.getNombre()+"\n"+monitor.getUsername()
         +"\n"+monitor.getSemestre()+"\n"+monitor.getLineaMonitoria()+"\n"+monitor.getNumTelefono()
         +"\n"+monitor.getLugar());
-        startActivity(Intent.createChooser(intent, "Compartir en"));
+        startActivity(Intent.createChooser(intent, getString(R.string.compartir_en)));
     }
 
     @Override

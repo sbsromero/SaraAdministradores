@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.sbsromero.proyectosadministradoressara.R;
 import com.sbsromero.proyectosadministradoressara.models.Monitor;
+import com.sbsromero.proyectosadministradoressara.utils.ManagerFirebase;
 import com.sbsromero.proyectosadministradoressara.utils.Util;
 import com.squareup.picasso.Picasso;
 
@@ -39,6 +40,9 @@ import io.realm.Realm;
 public class AgregarMonitorFragment extends Fragment {
 
     private Realm realm;
+    private ManagerFirebase manager;
+
+
     public Button btnRegistrarMonitor;
     public EditText editTextCedula;
     public EditText editTextNombre;
@@ -68,6 +72,7 @@ public class AgregarMonitorFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_agregar_monitor, container, false);
         realm = Realm.getDefaultInstance();
+        //manager = ManagerFirebase.instanciar();
 
         Spinner spinner = (Spinner) view.findViewById(R.id.spinnerSemestre);
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -238,9 +243,12 @@ public class AgregarMonitorFragment extends Fragment {
             Monitor monitor = new Monitor(foto,cedula,nombre,telefono,username,password,semestre,lineaAsesoria,date,lugar);
             realm.copyToRealm(monitor);
             realm.commitTransaction();
+
+            //manager.agregarMonitor(monitor);
             getActivity().finish();
         }
     }
+
 
     /**
      * Metodo que valida los campos para agregar un nuevo mentor

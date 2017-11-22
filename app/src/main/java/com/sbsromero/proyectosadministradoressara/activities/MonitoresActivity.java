@@ -23,7 +23,7 @@ public class MonitoresActivity extends AppCompatActivity implements ListMonitorF
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monitores);
-        getSupportActionBar().setTitle("Monitores");
+        getSupportActionBar().setTitle(R.string.monitores);
         prefs = getSharedPreferences("preferencesLogin", Context.MODE_PRIVATE);
     }
 

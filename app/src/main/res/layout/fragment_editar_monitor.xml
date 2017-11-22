@@ -46,7 +46,7 @@
                 android:layout_below="@id/frameLayout"
                 android:layout_centerHorizontal="true"
                 android:ems="10"
-                android:hint="Cedula monitor" />
+                android:hint="@string/cedula_monitor" />
 
             <EditText
                 android:id="@+id/editTextNombre"
@@ -55,7 +55,7 @@
                 android:layout_below="@id/editTextCedula"
                 android:layout_centerHorizontal="true"
                 android:ems="10"
-                android:hint="Nombre monitor" />
+                android:hint="@string/nombre_monitor" />
 
             <EditText
                 android:id="@+id/editTextTelefono"
@@ -64,7 +64,7 @@
                 android:layout_below="@id/editTextNombre"
                 android:layout_centerHorizontal="true"
                 android:ems="10"
-                android:hint="Telefono" />
+                android:hint="@string/telefono" />
 
             <EditText
                 android:id="@+id/editTextUsername"
@@ -73,7 +73,7 @@
                 android:layout_below="@id/editTextTelefono"
                 android:layout_centerHorizontal="true"
                 android:ems="10"
-                android:hint="Username" />
+                android:hint="@string/username" />
 
             <EditText
                 android:id="@+id/editTextPassword"
@@ -82,7 +82,7 @@
                 android:layout_below="@id/editTextUsername"
                 android:layout_centerHorizontal="true"
                 android:ems="10"
-                android:hint="Contraseña"
+                android:hint="@string/contrasena"
                 android:inputType="textPassword" />
 
             <Spinner
@@ -152,7 +152,7 @@
                 android:layout_below="@id/editTextHora"
                 android:layout_centerHorizontal="true"
                 android:ems="10"
-                android:hint="Lugar" />
+                android:hint="@string/lugar" />
 
             <Button
                 android:id="@+id/btnEditarMonitor"
@@ -160,7 +160,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_below="@+id/editTextLugar"
-                android:text="Guardar" />
+                android:text="@string/guardar" />
         </RelativeLayout>
     </ScrollView>
 

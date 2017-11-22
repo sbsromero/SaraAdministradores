@@ -11,6 +11,6 @@ public class EditarMonitorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_monitor);
-        getSupportActionBar().setTitle("Editar monitor");
+        getSupportActionBar().setTitle(R.string.editar_monitor);
     }
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="lineasAsesoria_array">
+        <item>Select one</item>
+        <item>Paradigm</item>
+        <item>Analysis of algorithms</item>
+        <item>Recursiveness</item>
+    </string-array>
+    <string name="cedula_monitor">Identificacion card</string>
+    <string name="nombre_monitor">Name monitor</string>
+    <string name="telefono">Celphone monitor</string>
+    <string name="username">Username</string>
+    <string name="contrasena">Password</string>
+    <string name="lugar">Place</string>
+    <string name="registrar">Register</string>
+    <string name="guardar">Save</string>
+    <string name="agregar_monitor">Add monitor</string>
+    <string name="editar_monitor">Edit monitor</string>
+    <string name="home">Home</string>
+    <string name="monitores">Monitors</string>
+    <string name="solicitar_cita">Ask for a date</string>
+    <string name="login">Login</string>
+    <string name="cerrar_sesion">Logout</string>
+    <string name="visualizar_monitor">Visualizar monitor</string>
+    <string name="citas_pendiente">Pending appointments</string>
+    <string name="borrar">Delete</string>
+    <string name="editar">Edit</string>
+    <string name="compartir">Shared</string>
+    <string name="compartir_en">Shared with</string>
+</resources>

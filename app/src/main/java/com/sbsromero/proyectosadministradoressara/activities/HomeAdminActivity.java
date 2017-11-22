@@ -18,10 +18,11 @@ public class HomeAdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_admin);
+        getSupportActionBar().setTitle(R.string.home);
 
         List<String> options = new ArrayList<>();
-        options.add("Monitores");
-        options.add("Solicitar cita");
+        options.add(getString(R.string.monitores));
+        options.add(getString(R.string.solicitar_cita));
 
         RecyclerView recyclerViewMonitor = (RecyclerView) findViewById(R.id.recyclerViewHomeAdmin);
         recyclerViewMonitor.setLayoutManager(new GridLayoutManager(this, 2));

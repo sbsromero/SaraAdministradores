@@ -28,7 +28,6 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:ems="15"
-                android:text="Nombre monitor"
                 android:textSize="16dp" />
 
             <TextView
@@ -39,7 +38,6 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:ems="15"
-                android:text="Telefono monitor"
                 android:textSize="16dp" />
 
             <TextView
@@ -50,7 +48,6 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:ems="15"
-                android:text="Username monitor"
                 android:textSize="16dp" />
 
             <TextView
@@ -61,7 +58,6 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:ems="15"
-                android:text="Semestre monitor"
                 android:textSize="16dp" />
 
             <TextView
@@ -72,7 +68,6 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:ems="15"
-                android:text="Linea monitoria monitor"
                 android:textSize="16dp" />
 
             <TextView
@@ -84,7 +79,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp"
                 android:ems="10"
-                android:text="Citas pendiente"
+                android:text="@string/citas_pendiente"
                 android:textSize="16dp" />
 
             <ImageButton

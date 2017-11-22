@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Proyectosadministradoressara</string>
+    <string name="app_name">SaraAdministradores</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -18,8 +18,29 @@
     <string-array name="lineasAsesoria_array">
         <item>Seleccione uno</item>
         <item>Paradigma</item>
-        <item>Analisis</item>
-        <item>Backtracking</item>
+        <item>Analisis de algoritmos</item>
+        <item>Recursividad</item>
     </string-array>
     <string name="facebook_app_id">722196974636747</string>
+    <string name="cedula_monitor">Cedula monitor</string>
+    <string name="nombre_monitor">Nombre monitor</string>
+    <string name="telefono">Telefono</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="lugar">Lugar</string>
+    <string name="registrar">Registrar</string>
+    <string name="guardar">Guardar</string>
+    <string name="agregar_monitor">Agregar monitor</string>
+    <string name="editar_monitor">Editar monitor</string>
+    <string name="home">Principal</string>
+    <string name="monitores">Monitores</string>
+    <string name="solicitar_cita">Solicitar cita</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="visualizar_monitor">Visualize monitor</string>
+    <string name="citas_pendiente">Citas pendiente</string>
+    <string name="borrar">Borrar</string>
+    <string name="editar">Editar</string>
+    <string name="compartir">Compartir</string>
+    <string name="compartir_en">Compartir en</string>
 </resources>

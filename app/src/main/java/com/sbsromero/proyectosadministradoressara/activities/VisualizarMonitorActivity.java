@@ -11,6 +11,6 @@ public class VisualizarMonitorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizar_monitor);
-        getSupportActionBar().setTitle("Visualizar monitor");
+        getSupportActionBar().setTitle(R.string.visualizar_monitor);
     }
 }

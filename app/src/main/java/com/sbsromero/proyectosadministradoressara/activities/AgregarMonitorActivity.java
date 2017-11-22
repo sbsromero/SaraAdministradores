@@ -11,6 +11,6 @@ public class AgregarMonitorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_monitor);
-        getSupportActionBar().setTitle("Agregar monitor");
+        getSupportActionBar().setTitle(R.string.agregar_monitor);
     }
 }

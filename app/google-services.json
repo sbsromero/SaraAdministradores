@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "150456153686",
+    "firebase_url": "https://proyectosara-bbfba.firebaseio.com",
+    "project_id": "proyectosara-bbfba",
+    "storage_bucket": "proyectosara-bbfba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150456153686:android:585d6b6a1271356d",
+        "android_client_info": {
+          "package_name": "com.sbsromero.proyectosadministradoressara"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150456153686-td2697densh9c9l9qtd1vrhf6svfociu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sbsromero.proyectosadministradoressara",
+            "certificate_hash": "dc0d3401144bc36040ae4adb247cd8ec366bf495"
+          }
+        },
+        {
+          "client_id": "150456153686-afspiptlh7hveq234dm18203tqcgu0en.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWI74HOj-bTA6T6ZRxafDrgJuYfDMnq1k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "150456153686-afspiptlh7hveq234dm18203tqcgu0en.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
