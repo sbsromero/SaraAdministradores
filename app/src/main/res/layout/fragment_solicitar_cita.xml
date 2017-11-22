@@ -1,0 +1,55 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sbsromero.proyectosadministradoressara.fragments.SolicitarCitaFragment">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+
+            <EditText
+                android:layout_centerHorizontal="true"
+                android:id="@+id/cedulaSolicitante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"/>
+
+            <EditText
+                android:id="@+id/nombreSolicitante"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:layout_below="@+id/cedulaSolicitante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+                android:layout_centerHorizontal="true"
+                android:id="@+id/spinnerSemestre"
+                android:layout_below="@+id/nombreSolicitante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Spinner
+                android:layout_centerHorizontal="true"
+                android:id="@+id/spinnerLineaMonitoria"
+                android:layout_below="@+id/spinnerSemestre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <Button
+                android:layout_below="@+id/spinnerLineaMonitoria"
+                android:layout_centerHorizontal="true"
+                android:text="Buscar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+</FrameLayout>

@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
 
         bindUi();
         realm = Realm.getDefaultInstance();
-        //Util.agregarAdmin(realm);
+        Util.agregarAdmin(realm);
 /*        realm.beginTransaction();
         realm.deleteAll();
         realm.commitTransaction();*/

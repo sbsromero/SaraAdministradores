@@ -31,6 +31,7 @@
         </activity>
         <activity android:name=".activities.HomeAdminActivity" />
         <activity android:name=".activities.EditarMonitorActivity" />
+        <activity android:name=".activities.SolicitarCitaActivity"></activity>
     </application>
 
 </manifest>

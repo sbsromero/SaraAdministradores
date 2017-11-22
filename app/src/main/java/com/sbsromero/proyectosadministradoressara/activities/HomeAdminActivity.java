@@ -34,10 +34,10 @@ public class HomeAdminActivity extends AppCompatActivity {
                     Intent intent = new Intent(HomeAdminActivity.this,MonitoresActivity.class);
                     startActivity(intent);
                 }
-   /*             else{
-                    Intent intent = new Intent(HomeAdminActivity.this,CancelarCitas.class);
+                else{
+                    Intent intent = new Intent(HomeAdminActivity.this,SolicitarCitaActivity.class);
                     startActivity(intent);
-                }*/
+                }
             }
         });
 
