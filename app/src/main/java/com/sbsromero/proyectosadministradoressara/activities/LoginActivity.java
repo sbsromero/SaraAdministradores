@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         bindUi();
         realm = Realm.getDefaultInstance();
         Util.agregarAdmin(realm);
-/*        realm.beginTransaction();
+ /*       realm.beginTransaction();
         realm.deleteAll();
         realm.commitTransaction();*/
         prefs = getSharedPreferences("preferencesLogin", Context.MODE_PRIVATE);

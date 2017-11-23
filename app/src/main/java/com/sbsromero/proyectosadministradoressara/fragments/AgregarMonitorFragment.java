@@ -42,7 +42,6 @@ public class AgregarMonitorFragment extends Fragment {
     private Realm realm;
     private ManagerFirebase manager;
 
-
     public Button btnRegistrarMonitor;
     public EditText editTextCedula;
     public EditText editTextNombre;
@@ -243,9 +242,8 @@ public class AgregarMonitorFragment extends Fragment {
             Monitor monitor = new Monitor(foto,cedula,nombre,telefono,username,password,semestre,lineaAsesoria,date,lugar);
             realm.copyToRealm(monitor);
             realm.commitTransaction();
-
-            //manager.agregarMonitor(monitor);
             getActivity().finish();
+            //manager.agregarMonitor(monitor);
         }
     }
 

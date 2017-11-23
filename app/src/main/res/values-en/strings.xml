@@ -27,4 +27,6 @@
     <string name="editar">Edit</string>
     <string name="compartir">Shared</string>
     <string name="compartir_en">Shared with</string>
+    <string name="cedula">Identificacion card</string>
+    <string name="nombre">Name</string>
 </resources>
