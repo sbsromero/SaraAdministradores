@@ -135,7 +135,7 @@ public class ListMonitorFragment extends Fragment {
      * @param filtro
      */
     public void filtrarLineaMonitoria(String filtro) {
-        if (filtro.equals("Seleccione uno")) {
+        if (filtro.equals("Seleccione uno") || filtro.equals("Select one")) {
             filtroMonitores = realm.where(Monitor.class)
                     .findAll();
         } else {
