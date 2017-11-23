@@ -1,8 +1,13 @@
 package com.sbsromero.proyectosadministradoressara.utils;
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.support.v7.app.NotificationCompat;
 import android.util.Base64;
 
+import com.sbsromero.proyectosadministradoressara.R;
 import com.sbsromero.proyectosadministradoressara.models.Admin;
 
 import java.io.UnsupportedEncodingException;
@@ -66,5 +71,55 @@ public class Util {
             e.printStackTrace();
         }
         return base64;
+    }
+
+    //Metodo que verifica si esta conectado a una red
+    public static boolean conectadoARed(Context context) {
+
+        ConnectivityManager connectivityManager = (ConnectivityManager)
+                context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo actNetInfo = connectivityManager.getActiveNetworkInfo();
+
+        return (actNetInfo != null && actNetInfo.isConnected());
+    }
+
+    //Metodo que comprueba si hay conexion a internet
+    public static Boolean compruebaConexion() {
+
+        try {
+            Process p = java.lang.Runtime.getRuntime().exec("ping -c 1 www.google.es");
+
+            int val = p.waitFor();
+            boolean reachable = (val == 0);
+            return reachable;
+
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    //Metodo que muestra una notificacion cuando no e tiene conexion a internet
+    public static void mostrarNotificacion(Context context){
+        NotificationCompat.Builder mBuilder =
+                (NotificationCompat.Builder) new NotificationCompat.Builder(context)
+                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setContentTitle(context.getString(R.string.app_name))
+                        .setContentText(context.getString(R.string.msjConexion))
+                        .setOngoing(true);
+
+        android.app.NotificationManager notificationManager =
+                (android.app.NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(14,mBuilder.build());
+    }
+
+    //Metodo que oculta la notificación correspondiente cuando se tiene acceso a internet
+    public static void ocultarNotificacion(Context context){
+        android.app.NotificationManager notificationManager =
+                (android.app.NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(14);
+
     }
 }

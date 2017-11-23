@@ -27,4 +27,5 @@
     <string name="editar">Edit</string>
     <string name="compartir">Shared</string>
     <string name="compartir_en">Shared with</string>
+    <string name="msjConexion">No internet connection</string>
 </resources>
