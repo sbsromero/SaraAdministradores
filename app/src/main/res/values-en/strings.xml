@@ -28,4 +28,6 @@
     <string name="compartir">Shared</string>
     <string name="compartir_en">Shared with</string>
     <string name="msjConexion">No internet connection</string>
+    <string name="cedula">Identificacion card</string>
+    <string name="nombre">Name</string>
 </resources>

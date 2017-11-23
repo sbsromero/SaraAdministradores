@@ -44,4 +44,6 @@
     <string name="compartir">Compartir</string>
     <string name="compartir_en">Compartir en</string>
     <string name="msjConexion">No tiene conexion a internet</string>
+    <string name="cedula">Cedula</string>
+    <string name="nombre">Nombre</string>
 </resources>

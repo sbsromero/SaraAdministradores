@@ -39,6 +39,8 @@ public class Monitor extends RealmObject{
     @Required
     private String lugar;
 
+    private Boolean activo;
+
     private RealmList<Cita> citas;
 
     public Monitor() {
@@ -58,6 +60,7 @@ public class Monitor extends RealmObject{
         this.fecha = fecha;
         this.lugar = lugar;
         this.citas = new RealmList<Cita>();
+        this.activo = true;
     }
 
     public int getId() {
@@ -146,5 +149,18 @@ public class Monitor extends RealmObject{
 
     public RealmList<Cita> getCitas() {
         return citas;
+    }
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
+
+    @Override
+    public String toString() {
+        return nombre+"-"+cedula;
     }
 }

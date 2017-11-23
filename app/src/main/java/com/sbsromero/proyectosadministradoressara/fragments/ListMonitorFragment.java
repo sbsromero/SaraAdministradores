@@ -65,6 +65,7 @@ public class ListMonitorFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        Toast.makeText(getContext(),"porqueee",Toast.LENGTH_LONG).show();
         monitorAdapter.notifyDataSetChanged();
     }
 
